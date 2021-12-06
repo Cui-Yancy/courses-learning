@@ -6,6 +6,7 @@
 #define ERROR		1
 
 typedef int ElemType;
+typedef int status;
 
 typedef struct ListNode
 {
@@ -13,3 +14,4 @@ typedef struct ListNode
 	struct ListNode* next;
 }ListNode,*LinkList;
 
+status ListDelete(LinkList& L,int i);
