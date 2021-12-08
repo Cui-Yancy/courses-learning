@@ -109,3 +109,37 @@ status ListDelete(LinkList& L, int i, ElemType& elem)
         return ERROR;
     }
 }
+
+//头插法创建链表
+void ListCreateFromHead(LinkList& L, int n)
+{
+    L = new ListNode;
+    L->next = NULL;
+    cout << "头插法建立链表" << endl;
+    for (int i = 0; i < n; i++)
+    {
+        ListNode* p = new ListNode;
+        p->next = L->next;
+        L->next = p;
+        cout << "请输入第" << i + 1 << "个元素的值" << endl;
+        cin >> p->data;
+    }
+}
+
+//尾插法建立链表，需要使用辅助结点指针，即尾结点指针，始终指向链表最后一个结点位置
+void ListCreateFromTail(LinkList& L, int n)
+{
+    L = new ListNode;
+    L->next = NULL;
+    ListNode* pTail = L;
+    cout << "尾插法建立链表" << endl;
+    for (int i = 0; i < n; i++)
+    {
+        ListNode* p = new ListNode;
+        p->next = NULL;
+        pTail->next = p;
+        pTail = p;
+        cout << "请输入第" << i + 1 << "个元素的值" << endl;
+        cin >> p->data;
+    }
+}

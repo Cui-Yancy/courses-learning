@@ -18,3 +18,5 @@ int ListLocateIndex(LinkList L, ElemType elem);
 ListNode* ListLocatePosition(LinkList L, ElemType elem);
 status ListInsert(LinkList& L, int i, ElemType elem);
 status ListDelete(LinkList& L, int i, ElemType& elem);
+void ListCreateFromHead(LinkList& L, int n);
+void ListCreateFromTail(LinkList& L, int n);
