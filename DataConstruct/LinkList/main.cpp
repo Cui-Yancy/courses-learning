@@ -37,6 +37,11 @@ int main()
     ListCreateFromTail(Lb, 3);
     ListForEach(La, ListPrintElem);
     ListForEach(Lb, ListPrintElem);
+    
+    LinkList Lc;
+    Lc = OrderedListMerge(La, Lb);
+    ListForEach(Lc, ListPrintElem);
+
     system("pause");
     return 0;
 }
