@@ -2,6 +2,67 @@
 using namespace std;
 #include "LinkList.h"
 
+status ListInit(LinkList& L)
+{
+    L = new ListNode;   //分配一块地方，可以存放一个节点，即头结点，这个节点的地址就是头指针
+    L->next = NULL;     //头指针地址指向头结点，将头结点的指针域置空，表示空链表
+    return OK;
+}
+
+status ListEmpty(LinkList L)
+{
+    if (L->next == NULL)
+    {
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
+    }
+}
+
+//将链表销毁
+//从头结点开始删除，但要注意，如果直接删除会丢失指针域，找不到下一个结点地址，因此应该将头指针后移之后再删除
+void ListDestroy(LinkList& L)
+{
+    ListNode* p;
+    while (L != NULL)
+    {
+        p = L;
+        L = L->next;    //在删除之前，需要后移头指针，不然就丢失后继节点地址了
+        delete p;
+    }
+}
+
+//将链表清零
+//从首元结点开始删除，保留头结点，操作结束后，将头结点指针域置为空
+void ListClear(LinkList& L)
+{
+    ListNode* q = L->next;
+    ListNode* p;
+    while (q != NULL)
+    {
+        p = q;
+        q = q->next;
+        delete p;
+    }
+    L->next = NULL;
+}
+
+//求链表长度
+//从首元结点开始计数累加
+int ListLength(LinkList L)
+{
+    int length = 0;
+    ListNode* p = L->next;
+    while (p)
+    {
+        p = p->next;
+        length++;
+    }
+    return length;
+}
+
 //查找第i个元素
 status ListFind(LinkList L, int i, ElemType& elem)
 {
