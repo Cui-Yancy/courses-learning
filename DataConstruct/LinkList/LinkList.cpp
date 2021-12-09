@@ -64,7 +64,7 @@ int ListLength(LinkList L)
 }
 
 //查找第i个元素
-status ListFind(LinkList L, int i, ElemType& elem)
+status ListFind(LinkList L, int i, ListElemType& elem)
 {
     if (i < 1)                  //判断i是否合理
     {
@@ -88,7 +88,7 @@ status ListFind(LinkList L, int i, ElemType& elem)
     }
 }
 
-int ListLocateIndex(LinkList L, ElemType elem)
+int ListLocateIndex(LinkList L, ListElemType elem)
 {
     int i = 1;
     ListNode* p = L->next;
@@ -107,7 +107,7 @@ int ListLocateIndex(LinkList L, ElemType elem)
     }
 }
 
-ListNode* ListLocatePosition(LinkList L, ElemType elem)
+ListNode* ListLocatePosition(LinkList L, ListElemType elem)
 {
     ListNode* p = L->next;
     while (p && p->data != elem)
@@ -117,7 +117,7 @@ ListNode* ListLocatePosition(LinkList L, ElemType elem)
     return p;
 }
 
-status ListInsert(LinkList& L, int i, ElemType elem)
+status ListInsert(LinkList& L, int i, ListElemType elem)
 {
     if (i < 1)                          //插入位置小于1，不正确
     {
@@ -144,7 +144,7 @@ status ListInsert(LinkList& L, int i, ElemType elem)
     }
 }
 
-status ListDelete(LinkList& L, int i, ElemType& elem)
+status ListDelete(LinkList& L, int i, ListElemType& elem)
 {
     if (i < 1)                          //删除位置小于1，不正确
     {
@@ -176,13 +176,13 @@ void ListCreateFromHead(LinkList& L, int n)
 {
     L = new ListNode;
     L->next = NULL;
-    cout << "头插法建立链表" << endl;
+    cout << "头插法建立链表：" << endl;
     for (int i = 0; i < n; i++)
     {
         ListNode* p = new ListNode;
         p->next = L->next;
         L->next = p;
-        cout << "请输入第" << i + 1 << "个元素的值" << endl;
+        cout << "请输入第：" << i + 1 << "个元素的值" << endl;
         cin >> p->data;
     }
 }
@@ -193,14 +193,37 @@ void ListCreateFromTail(LinkList& L, int n)
     L = new ListNode;
     L->next = NULL;
     ListNode* pTail = L;
-    cout << "尾插法建立链表" << endl;
+    cout << "尾插法建立链表：" << endl;
     for (int i = 0; i < n; i++)
     {
         ListNode* p = new ListNode;
         p->next = NULL;
         pTail->next = p;
         pTail = p;
-        cout << "请输入第" << i + 1 << "个元素的值" << endl;
+        cout << "请输入第：" << i + 1 << "个元素的值" << endl;
         cin >> p->data;
+    }
+}
+
+void ListPrintElem(ListNode* p)
+{
+    cout << p->data;
+    if (!p->next)
+    {
+        cout << endl;
+    }
+    else
+    {
+        cout<<"  ";
+    }
+}
+
+void ListForEach(LinkList L, ListFunctionType func)
+{
+    ListNode* p = L->next;
+    while (p)
+    {
+        func(p);
+        p = p->next;
     }
 }

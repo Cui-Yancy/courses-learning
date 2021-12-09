@@ -1,15 +1,10 @@
 #pragma once
+#include "define.h"
 
-#define OK      0
-#define ERROR   1
-#define FALSE   0
-#define TRUE    1
-
-typedef int ElemType;
-typedef int status;
+typedef int ListElemType;
 
 typedef struct ListNode {
-    ElemType data;
+    ListElemType data;
     struct ListNode* next;
 }ListNode, * LinkList;
 
@@ -21,10 +16,14 @@ void ListClear(LinkList& L);    //将链表置空，留下头结点
 int ListLength(LinkList L);     //求链表长度
 
 //进阶算法
-status ListFind(LinkList L, int i, ElemType& elem);         //链表元素存取，取出链表中第i个元素值
-int ListLocateIndex(LinkList L, ElemType elem);             //定位链表元素，按照元素值，查找元素所在位置
-ListNode* ListLocatePosition(LinkList L, ElemType elem);    //定位链表元素，按照元素值，查找所在结点位置
-status ListInsert(LinkList& L, int i, ElemType elem);       //在第i个位置插入元素
-status ListDelete(LinkList& L, int i, ElemType& elem);      //删除第i个元素，并将删除值保存
+status ListFind(LinkList L, int i, ListElemType& elem);         //链表元素存取，取出链表中第i个元素值
+int ListLocateIndex(LinkList L, ListElemType elem);             //定位链表元素，按照元素值，查找元素所在位置
+ListNode* ListLocatePosition(LinkList L, ListElemType elem);    //定位链表元素，按照元素值，查找所在结点位置
+status ListInsert(LinkList& L, int i, ListElemType elem);       //在第i个位置插入元素
+status ListDelete(LinkList& L, int i, ListElemType& elem);      //删除第i个元素，并将删除值保存
 void ListCreateFromHead(LinkList& L, int n);                //链表初始化，头插法
 void ListCreateFromTail(LinkList& L, int n);                //链表初始化，尾插法
+
+typedef void (*ListFunctionType)(ListNode* p);
+void ListPrintElem(ListNode* p);
+void ListForEach(LinkList L, ListFunctionType func);
