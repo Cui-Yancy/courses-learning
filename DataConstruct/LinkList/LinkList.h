@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "define.h"
 
 typedef int ListElemType;
@@ -8,21 +8,21 @@ typedef struct ListNode {
     struct ListNode* next;
 }ListNode, * LinkList;
 
-//¼òµ¥Ëã·¨
-status ListInit(LinkList& L);   //³õÊ¼»¯Á´±í£¬Ö»º¬Í·½áµã
-status ListEmpty(LinkList L);   //ÅĞ¶ÏÁ´±íÊÇ·ñÎª¿Õ
-void ListDestroy(LinkList& L);  //Ïú»ÙÁ´±í£¬Çå¿ÕËùÓĞ½áµã
-void ListClear(LinkList& L);    //½«Á´±íÖÃ¿Õ£¬ÁôÏÂÍ·½áµã
-int ListLength(LinkList L);     //ÇóÁ´±í³¤¶È
+//ç®€å•ç®—æ³•
+status ListInit(LinkList& L);   //åˆå§‹åŒ–é“¾è¡¨ï¼Œåªå«å¤´ç»“ç‚¹
+status ListEmpty(LinkList L);   //åˆ¤æ–­é“¾è¡¨æ˜¯å¦ä¸ºç©º
+void ListDestroy(LinkList& L);  //é”€æ¯é“¾è¡¨ï¼Œæ¸…ç©ºæ‰€æœ‰ç»“ç‚¹
+void ListClear(LinkList& L);    //å°†é“¾è¡¨ç½®ç©ºï¼Œç•™ä¸‹å¤´ç»“ç‚¹
+int ListLength(LinkList L);     //æ±‚é“¾è¡¨é•¿åº¦
 
-//½ø½×Ëã·¨
-status ListFind(LinkList L, int i, ListElemType& elem);         //Á´±íÔªËØ´æÈ¡£¬È¡³öÁ´±íÖĞµÚi¸öÔªËØÖµ
-int ListLocateIndex(LinkList L, ListElemType elem);             //¶¨Î»Á´±íÔªËØ£¬°´ÕÕÔªËØÖµ£¬²éÕÒÔªËØËùÔÚÎ»ÖÃ
-ListNode* ListLocatePosition(LinkList L, ListElemType elem);    //¶¨Î»Á´±íÔªËØ£¬°´ÕÕÔªËØÖµ£¬²éÕÒËùÔÚ½áµãÎ»ÖÃ
-status ListInsert(LinkList& L, int i, ListElemType elem);       //ÔÚµÚi¸öÎ»ÖÃ²åÈëÔªËØ
-status ListDelete(LinkList& L, int i, ListElemType& elem);      //É¾³ıµÚi¸öÔªËØ£¬²¢½«É¾³ıÖµ±£´æ
-void ListCreateFromHead(LinkList& L, int n);                //Á´±í³õÊ¼»¯£¬Í·²å·¨
-void ListCreateFromTail(LinkList& L, int n);                //Á´±í³õÊ¼»¯£¬Î²²å·¨
+//è¿›é˜¶ç®—æ³•
+status ListFind(LinkList L, int i, ListElemType& elem);         //é“¾è¡¨å…ƒç´ å­˜å–ï¼Œå–å‡ºé“¾è¡¨ä¸­ç¬¬iä¸ªå…ƒç´ å€¼
+int ListLocateIndex(LinkList L, ListElemType elem);             //å®šä½é“¾è¡¨å…ƒç´ ï¼ŒæŒ‰ç…§å…ƒç´ å€¼ï¼ŒæŸ¥æ‰¾å…ƒç´ æ‰€åœ¨ä½ç½®
+ListNode* ListLocatePosition(LinkList L, ListElemType elem);    //å®šä½é“¾è¡¨å…ƒç´ ï¼ŒæŒ‰ç…§å…ƒç´ å€¼ï¼ŒæŸ¥æ‰¾æ‰€åœ¨ç»“ç‚¹ä½ç½®
+status ListInsert(LinkList& L, int i, ListElemType elem);       //åœ¨ç¬¬iä¸ªä½ç½®æ’å…¥å…ƒç´ 
+status ListDelete(LinkList& L, int i, ListElemType& elem);      //åˆ é™¤ç¬¬iä¸ªå…ƒç´ ï¼Œå¹¶å°†åˆ é™¤å€¼ä¿å­˜
+void ListCreateFromHead(LinkList& L, int n);                //é“¾è¡¨åˆå§‹åŒ–ï¼Œå¤´æ’æ³•
+void ListCreateFromTail(LinkList& L, int n);                //é“¾è¡¨åˆå§‹åŒ–ï¼Œå°¾æ’æ³•
 
 typedef void (*ListFunctionType)(ListNode* p);
 void ListPrintElem(ListNode* p);

@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include "define.h"
 
 typedef int DuListElemType;
@@ -9,6 +9,6 @@ typedef struct DuListNode
     struct DuListNode* prior, * next;
 }DuListNode, * DuLinkList;
 
-DuListNode* DuListLocate(DuLinkList L, int i);                      //Ë«ÏòÁ´±í²éÕÒµÚi¸öÔªËØµÄ½áµãÎ»ÖÃ
-status DuListInsert(DuLinkList& L, int i, DuListElemType elem);     //Ë«ÏòÁ´±íÔÚµÚi¸öÎ»ÖÃ²åÈëÔªËØ
+DuListNode* DuListLocate(DuLinkList L, int i);                      //åŒå‘é“¾è¡¨æŸ¥æ‰¾ç¬¬iä¸ªå…ƒç´ çš„ç»“ç‚¹ä½ç½®
+status DuListInsert(DuLinkList& L, int i, DuListElemType elem);     //åŒå‘é“¾è¡¨åœ¨ç¬¬iä¸ªä½ç½®æ’å…¥å…ƒç´ 
 status DuListDelete(DuLinkList& L, int i, DuListElemType& elem);

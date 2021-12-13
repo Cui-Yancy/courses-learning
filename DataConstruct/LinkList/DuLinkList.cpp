@@ -1,4 +1,4 @@
-#include "DuLinkList.h"
+ï»¿#include "DuLinkList.h"
 #include <iostream>
 using namespace std;
 
@@ -18,7 +18,7 @@ DuListNode* DuListLocate(DuLinkList L, int i)
     return p;
 }
 
-//²åÈëÔªËØÊ±£¬ÐèÒªÐÞ¸Ä4¸öÖ¸ÕëÓò
+//æ’å…¥å…ƒç´ æ—¶ï¼Œéœ€è¦ä¿®æ”¹4ä¸ªæŒ‡é’ˆåŸŸ
 status DuListInsert(DuLinkList& L, int i, DuListElemType elem)
 {
     DuListNode* p = DuListLocate(L, i);
@@ -38,13 +38,13 @@ status DuListInsert(DuLinkList& L, int i, DuListElemType elem)
 status DuListDelete(DuLinkList& L, int i, DuListElemType& elem)
 {
     DuListNode* p = DuListLocate(L, i);
-    if (!p)       //Èç¹ûÉ¾³ýµÄÔªËØÎ»ÖÃ²»´æÔÚ
+    if (!p)       //å¦‚æžœåˆ é™¤çš„å…ƒç´ ä½ç½®ä¸å­˜åœ¨
     {
         return ERROR;
     }
     p->prior->next = p->next;
-    if (!p->next)                   //Èç¹ûÉ¾³ýµÄÊÇ×îºóÒ»¸ö½áµã£¬Ö»ÐèÒª½«Ç°Ç÷½ÚµãµÄnextÖ¸ÕëÓòÐÞ¸ÄÎª¿Õ
-    {                               //·ñÔò»¹ÐèÒª½«ºó¼Ì½áµãµÄpriorÍ¬Ê±ÐÞ¸Ä
+    if (!p->next)                   //å¦‚æžœåˆ é™¤çš„æ˜¯æœ€åŽä¸€ä¸ªç»“ç‚¹ï¼Œåªéœ€è¦å°†å‰è¶‹èŠ‚ç‚¹çš„nextæŒ‡é’ˆåŸŸä¿®æ”¹ä¸ºç©º
+    {                               //å¦åˆ™è¿˜éœ€è¦å°†åŽç»§ç»“ç‚¹çš„prioråŒæ—¶ä¿®æ”¹
         p->next->prior = p->prior;
     }
     elem = p->data;

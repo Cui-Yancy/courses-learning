@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 using namespace std;
 #include "LinkList.h"
 
@@ -77,7 +77,7 @@ status ListFind(LinkList L, int i, ListElemType& elem)
         p = p->next;
         j++;
     }
-    if (j == i)                 //如果是由于j=i退出循环，那就是找到了这个元素
+    if (p)                       //如果退出的时候地址仍然有效，那就是找到了元素
     {
         elem = p->data;
         return OK;
@@ -220,6 +220,10 @@ void ListPrintElem(ListNode* p)
 
 void ListForEach(LinkList L, ListFunctionType func)
 {
+    if (!L)     //链表头指针为空
+    {
+        return;
+    }
     ListNode* p = L->next;
     while (p)
     {
