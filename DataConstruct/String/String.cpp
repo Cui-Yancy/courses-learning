@@ -79,4 +79,13 @@ int StringKMP(String S, String T, int pos)
             j = next[j];
         }
     }
+
+    if(j>T.length)
+    {
+        return i-T.length;
+    }
+    else
+    {
+        return 0;
+    }
 }
