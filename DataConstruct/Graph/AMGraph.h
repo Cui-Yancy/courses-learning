@@ -13,6 +13,10 @@ typedef struct
     AMArcType Arcs[MaxVertexNum][MaxVertexNum]; //边或弧形成的邻接矩阵
     int VertexNum;  //图中的顶点个数
     int ArcNum;     //图中的边或弧的个数
+    int* Visited;
 }AMGraph;
 
 status CreateUDN(AMGraph& G);
+void ClearVisited(const AMGraph& G);
+void DFS(const AMGraph& G, int v);
+void BFS(const AMGraph& G, int v);

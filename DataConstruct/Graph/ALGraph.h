@@ -27,6 +27,10 @@ typedef struct
     VertexNode Vertexs[ALMaxVertexNum];
     int VertexNum;
     int ArcNum;
+    int* Visited;
 }ALGraph;
 
 status CreateUDN(ALGraph& G);
+void ClearVisited(const ALGraph& G);
+void DFS(const ALGraph& G, int v);
+void BFS(const ALGraph& G, int v);
