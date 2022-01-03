@@ -16,6 +16,7 @@ typedef struct LinkQueue
 }LinkQueue;
 
 status LinkQueueInit(LinkQueue& Q);
+bool LinkQueueEmpty(const LinkQueue& Q);
 status LinkQueueDestroy(LinkQueue& Q);
 status LinkQueueEnter(LinkQueue& Q, LinkQueueElemType elem);
 status LinkQueueExit(LinkQueue& Q, LinkQueueElemType& elem);

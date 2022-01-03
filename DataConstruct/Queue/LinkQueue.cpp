@@ -16,6 +16,18 @@ status LinkQueueInit(LinkQueue& Q)
     }
 }
 
+bool LinkQueueEmpty(const LinkQueue& Q)
+{
+    if (Q.front->next == NULL)
+    {
+        return TRUE;
+    }
+    else
+    {
+        return FALSE;
+    }
+}
+
 status LinkQueueDestroy(LinkQueue& Q)
 {
     LinkQueuePtr p = Q.front;
@@ -25,6 +37,7 @@ status LinkQueueDestroy(LinkQueue& Q)
         delete p;
         p = Q.front;
     }
+    return OK;
 }
 
 status LinkQueueEnter(LinkQueue& Q, LinkQueueElemType elem)
@@ -53,7 +66,7 @@ status LinkQueueExit(LinkQueue& Q, LinkQueueElemType& elem)
     }
     LinkQueuePtr p = Q.front->next;
     elem = p->data;
-    Q.front = p->next;
+    Q.front->next = p->next;
     if (p == Q.rear)
     {
         Q.rear = Q.front; 
