@@ -1,16 +1,16 @@
-#include "InsertSort.h"
+ï»¿#include "InsertSort.h"
 #include <iostream>
 using namespace std;
 #include <stdlib.h>
 #include <ctime>
 
-//ÏÔÊ¾ÅÅĞòË³Ğò±í
+//æ˜¾ç¤ºæ’åºé¡ºåºè¡¨
 static void showList(const SortSeqList& L)
 {
-    for (int i = 0; i < L.Length; i++)
+    for (int i = 1; i <= L.Length; i++)
     {
         cout << L.Arry[i].key;
-        if (i != L.Length - 1)
+        if (i != L.Length)
         {
             cout << " ";
         }
@@ -18,15 +18,15 @@ static void showList(const SortSeqList& L)
     cout << endl;
 }
 
-//ÅÅĞòË³Ğò±í³õÊ¼»¯
+//æ’åºé¡ºåºè¡¨åˆå§‹åŒ–
 status SortSeqListInit(SortSeqList& L)
 {
     srand((unsigned int)time(NULL));
     int n = 0;
-    cout << "ÇëÊäÈëËæ»úÅÅĞò±í³¤¶È" << endl;
+    cout << "è¯·è¾“å…¥éšæœºæ’åºè¡¨é•¿åº¦" << endl;
     cin >> n;
-    L.Arry = new SortElem[SORTMAXSIZE];
-    for (int i = 0; i < n; i++)
+    L.Arry = new SortElem[SORTMAXSIZE + 1];
+    for (int i = 1; i <= n; i++)
     {
         L.Arry[i].key = rand() % 101;
     }
@@ -34,24 +34,24 @@ status SortSeqListInit(SortSeqList& L)
     return OK;
 }
 
-//Ë³Ğò²åÈëÅÅĞò
-//ÀàËÆÓÚ×¥ÅÆ£¬Ã¿Ò»´Î½«ĞÂµÄÔªËØ²åÈëÓĞĞòĞòÁĞ
+//é¡ºåºæ’å…¥æ’åº
+//ç±»ä¼¼äºæŠ“ç‰Œï¼Œæ¯ä¸€æ¬¡å°†æ–°çš„å…ƒç´ æ’å…¥æœ‰åºåºåˆ—
 status SeqInsertSort(SortSeqList& L)
 {
-    for (int i = 1; i < L.Length; i++)
+    for (int i = 2; i <= L.Length; i++)
     {
-        SortKeyType x = L.Arry[i].key;
+        L.Arry[0] = L.Arry[i];
         int j;
-        for (j = i - 1; j >= 0 && L.Arry[j].key > x; j--)
+        for (j = i - 1; L.Arry[j].key > L.Arry[0].key; j--)
         {
             L.Arry[j + 1] = L.Arry[j];
         }
-        L.Arry[j + 1].key = x;
+        L.Arry[j + 1] = L.Arry[0];
     }
     return OK;
 }
 
-//ÅÅĞòË³Ğò±íÕ¹Ê¾demo
+//æ’åºé¡ºåºè¡¨å±•ç¤ºdemo
 void SortSeqListDemo()
 {
     SortSeqList L;
