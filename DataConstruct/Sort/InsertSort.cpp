@@ -51,6 +51,37 @@ status SeqInsertSort(SortSeqList& L)
     return OK;
 }
 
+//折半插入排序
+//在寻找插入元素位置时，采用折半查找的方法
+//会减少比较次数，但不会减少移动次数
+status HalfInsertSort(SortSeqList& L)
+{
+    for (int i = 2; i <= L.Length; i++)
+    {
+        L.Arry[0] = L.Arry[i];
+        int low = 1;
+        int high = i - 1;
+        while (low <= high)
+        {
+            int mid = (low + high) / 2;
+            if (L.Arry[mid].key > L.Arry[0].key)
+            {
+                high = mid - 1;
+            }
+            else
+            {
+                low = mid + 1;      //当中间位置的元素值等于插入元素时，也必须在右边位置进行插入，这样才可以保持稳定性
+            }
+        }//high+1为插入元素位置
+        for (int j = i - 1; j >= high + 1; j--)
+        {
+            L.Arry[j + 1] = L.Arry[j];
+        }
+        L.Arry[high + 1] = L.Arry[0];
+    }
+    return OK;
+}
+
 //排序顺序表展示demo
 void SortSeqListDemo()
 {
@@ -58,5 +89,7 @@ void SortSeqListDemo()
     SortSeqListInit(L);
     showList(L);
     SeqInsertSort(L);
+    showList(L);
+    HalfInsertSort(L);
     showList(L);
 }
