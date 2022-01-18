@@ -5,4 +5,5 @@
 status SortSeqListInit(SortSeqList& L);
 status SeqInsertSort(SortSeqList& L);
 status HalfInsertSort(SortSeqList& L);
-void SortSeqListDemo();
+void showSortSeqList(const SortSeqList& L);
+void InsertSortDemo();

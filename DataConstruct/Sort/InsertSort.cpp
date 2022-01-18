@@ -5,7 +5,7 @@ using namespace std;
 #include <ctime>
 
 //显示排序顺序表
-static void showList(const SortSeqList& L)
+void showSortSeqList(const SortSeqList& L)
 {
     for (int i = 1; i <= L.Length; i++)
     {
@@ -83,13 +83,23 @@ status HalfInsertSort(SortSeqList& L)
 }
 
 //排序顺序表展示demo
-void SortSeqListDemo()
+void InsertSortDemo()
 {
     SortSeqList L;
     SortSeqListInit(L);
-    showList(L);
+    cout << "原始数据：" << endl;
+    showSortSeqList(L);
+
     SeqInsertSort(L);
-    showList(L);
+    cout << "顺序插入排序结果：" << endl;
+    showSortSeqList(L);
+    cout << endl;
+
+    SortSeqListInit(L);
+    cout << "原始数据：" << endl;
+    showSortSeqList(L);
+
     HalfInsertSort(L);
-    showList(L);
+    cout << "折半插入排序结果：" << endl;
+    showSortSeqList(L);
 }
